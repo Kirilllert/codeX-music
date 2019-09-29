@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chillout Audio Synthesis</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="conteiner-of-allBody">
+		<div class="conteiner-of-programm">
+			<table>
+  <tbody>
+    <tr>
+      <td class="tracks">Tracks</td>
+      <td>Instrument</td>
+      <td>Melody</td>
+      <td>Interval,ms</td>
+      <td>Effect</td>
+      <td>Effect again</td>
+      <td>Track volume</td>
+
+    </tr>
+    <tr>
+       <td>
+      	<div class="button-play">
+      		Play
+     	 </div>
+  		</td>
+      <td>Ячейка 5</td>
+      <td>Ячейка 6</td>
+      <td>Ячейка 4</td>
+      <td>Ячейка 5</td>
+      <td>Ячейка 6</td>
+      <td>Ячейка 6</td>
+    </tr>
+    <tr>
+      <td>Ячейка 4</td>
+      <td>Ячейка 5</td>
+      <td>Ячейка 6</td>
+      <td>Ячейка 4</td>
+      <td>Ячейка 5</td>
+      <td>Ячейка 6</td>
+      <td>Ячейка 6</td>
+    </tr>
+  </tbody>
+</table>
+		</div>
+	</div>
+
+
+<script type="text/javascript">
+	let context = new (window.AudioContext || window.webkitAudioContext)(); //создаем Web Audio API контекст
+	let oscillator = context.createOscillator();//создаем узел осциллятора внутри этого контекста
+
+	oscillator.type = 'sine';
+	oscillator.frequency.value = 440;
+	oscillator.connect(context.destination);
+	oscillator.start();
+
+
+
+</script>
+</body>
+</html>
