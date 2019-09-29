@@ -22,12 +22,20 @@ td{
 }
 
 .tracks{
-	color: #8A9FA1;
+	color: black;
 }
 
 .button-play{
 	padding: 5px;
 	background-color: #EDFEF6;
+	color: #142D27;
 	cursor: pointer;
 	background-image:;
+	text-align: center;
+    border-radius: 5%;
+    border: 1px solid #142D27;
+}
+
+.play2{
+	background-color: #22CBA2;
 }

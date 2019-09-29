@@ -23,16 +23,18 @@
     </tr>
     <tr>
        <td>
-      	<div class="button-play">
+      	<div id="play" class="button-play">
       		Play
      	 </div>
   		</td>
       <td>Ячейка 5</td>
-      <td>Ячейка 6</td>
+      <td>
+        <input id="notes" type="" name="">
+      </td>
       <td>Ячейка 4</td>
       <td>Ячейка 5</td>
-      <td>Ячейка 6</td>
-      <td>Ячейка 6</td>
+      <td><input type="range" min="0" max="100" step="1" value="50"></td>
+      <td><input type="range" min="0" max="100" step="1" value="50"></td>
     </tr>
     <tr>
       <td>Ячейка 4</td>
@@ -52,11 +54,29 @@
 <script type="text/javascript">
 	let context = new (window.AudioContext || window.webkitAudioContext)(); //создаем Web Audio API контекст
 	let oscillator = context.createOscillator();//создаем узел осциллятора внутри этого контекста
+  let now = context.currentTime;//переменная таймера
+
+  //переменный по id из документа
+  let play = document.getElementById('play');
+  let notes = document.getElementById('notes').value;
+
+  
 
 	oscillator.type = 'sine';
 	oscillator.frequency.value = 440;
 	oscillator.connect(context.destination);
+
+  play.onclick = function(){
+  play.classList.add('play2')
 	oscillator.start();
+  let newNotes = notes.split(' ');
+  console.log(newNotes)
+}
+
+oscillator
+  .frequency
+  .setValueAtTime(466.16, context.currentTime);
+
 
 
 
