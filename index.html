@@ -27,24 +27,18 @@
       		Play
      	 </div>
   		</td>
-      <td>Ячейка 5</td>
+      <td>xylophone</td>
       <td>
         <input id="notes" type="" name="">
       </td>
-      <td>Ячейка 4</td>
-      <td>Ячейка 5</td>
+      <td>
+        <input type="" name="">
+      </td>
+      <td><input type="" name=""></td>
       <td><input type="range" min="0" max="100" step="1" value="50"></td>
       <td><input type="range" min="0" max="100" step="1" value="50"></td>
     </tr>
-    <tr>
-      <td>Ячейка 4</td>
-      <td>Ячейка 5</td>
-      <td>Ячейка 6</td>
-      <td>Ячейка 4</td>
-      <td>Ячейка 5</td>
-      <td>Ячейка 6</td>
-      <td>Ячейка 6</td>
-    </tr>
+
   </tbody>
 </table>
 		</div>
@@ -52,30 +46,54 @@
 
 
 <script type="text/javascript">
-	let context = new (window.AudioContext || window.webkitAudioContext)(); //создаем Web Audio API контекст
-	let oscillator = context.createOscillator();//создаем узел осциллятора внутри этого контекста
-  let now = context.currentTime;//переменная таймера
-
-  //переменный по id из документа
-  let play = document.getElementById('play');
-  let notes = document.getElementById('notes').value;
-
+	let plays = document.getElementById('play');
+  let notes = document.getElementById('notes');
   
 
-	oscillator.type = 'sine';
-	oscillator.frequency.value = 440;
-	oscillator.connect(context.destination);
+class Sound {
 
-  play.onclick = function(){
-  play.classList.add('play2')
-	oscillator.start();
-  let newNotes = notes.split(' ');
-  console.log(newNotes)
+  constructor(context) {
+    this.context = context;
+  }
+
+  init() {
+    this.oscillator = this.context.createOscillator();
+    this.gainNode = this.context.createGain();
+
+    this.oscillator.connect(this.gainNode);
+    this.gainNode.connect(this.context.destination);
+    this.oscillator.type = 'sine';
+  }
+
+  play(value, time) {
+    this.init();
+
+    this.oscillator.frequency.value = value;
+    this.gainNode.gain.setValueAtTime(1, this.context.currentTime);
+            
+    this.oscillator.start(time);
+    this.stop(time);
+
+  }
+
+  stop(time) {
+    this.gainNode.gain.exponentialRampToValueAtTime(0.001, time + 1);
+    this.oscillator.stop(time + 1);
+  }
+
 }
 
-oscillator
-  .frequency
-  .setValueAtTime(466.16, context.currentTime);
+plays.onclick = function(){
+let context = new (window.AudioContext || window.webkitAudioContext)();
+let note = new Sound(context);
+let now = context.currentTime;
+let allnotes = notes.value;
+let massiveNotes = allnotes.split(' ');
+
+let c4 = 261.63;
+note.play(c4, now);
+}
+
 
 
 
