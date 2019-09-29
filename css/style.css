@@ -1,0 +1,32 @@
+body,html{
+	height: 100%;
+	margin: 0;
+}
+
+.conteiner-of-allBody{
+	height: 100%;
+	margin: 0;
+	background-color: #E7F8FF;
+}
+
+.conteiner-of-programm{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+td{
+	font-family: 'Lato', sans-serif;
+	color: #9BAEB2;
+}
+
+.tracks{
+	color: #8A9FA1;
+}
+
+.button-play{
+	padding: 5px;
+	background-color: #EDFEF6;
+	cursor: pointer;
+}
