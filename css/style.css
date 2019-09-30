@@ -39,3 +39,41 @@ td{
 .play2{
 	background-color: #22CBA2;
 }
+  .top-row {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    .note-group {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      top: 52px;
+      &.group-of-two { width: 60px;  }
+      &.group-of-three { width: 93px; }
+      &.group-1 { margin-left: 17px; }
+      &.group-2 { margin-left: 36px; }
+      &.group-3 { margin-left: 42px; }
+      &.group-4 { margin-left: 39px; }
+      &.group-5 { margin-left: 38px; }
+    }
+    .note { margin-top: auto; }
+  }
+  .bottom-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note{
+	background-color: white;
+	padding: 60px 10px 5px 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+	border: 1px solid grey;
+	cursor: pointer;
+
+
+}
+.note:hover {
+background: linear-gradient(to right, #F6EFD2, #CEAD78);
+}

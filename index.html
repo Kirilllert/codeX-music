@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/44b6090e81.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="conteiner-of-allBody">
@@ -14,7 +15,7 @@
     <tr>
       <td class="tracks">Tracks</td>
       <td>Instrument</td>
-      <td>Melody</td>
+      <td>Melody </i></td>
       <td>Interval,ms</td>
       <td>Effect</td>
       <td>Effect again</td>
@@ -30,6 +31,29 @@
       <td>xylophone</td>
       <td>
         <input id="notes" type="" name="">
+        <div class="container">
+          <div class="bottom-row">
+            <div class="note note-13" data-frequency="196.00" value='g' id="clickNote1"><div>G</div></div>
+            <div class="note note-14" data-frequency="220.00" id="clickNote"><div>A</div></div>
+            <div class="note note-15" data-frequency="246.94" id="clickNote"><div>B</div></div>
+            <div class="note note-16" data-frequency="261.63" id="clickNote"><div>C</div></div>
+            <div class="note note-17" data-frequency="293.66" id="clickNote"><div>D</div></div>
+            <div class="note note-18" data-frequency="329.63" id="clickNote"><div>E</div></div>
+            <div class="note note-19" data-frequency="349.23" id="clickNote"><div>F</div></div>
+            <div class="note note-20" data-frequency="392.00" id="clickNote"><div>G</div></div>
+            <div class="note note-21" data-frequency="440.00" id="clickNote"><div>A</div></div>
+            <div class="note note-22" data-frequency="493.88" id="clickNote"><div>B</div></div>
+            <div class="note note-23" data-frequency="523.25" id="clickNote"><div>C</div></div>
+            <div class="note note-24" data-frequency="587.33" id="clickNote"><div>D</div></div>
+            <div class="note note-25" data-frequency="659.25" id="clickNote"><div>E</div></div>
+            <div class="note note-26" data-frequency="698.46" id="clickNote"><div>F</div></div>
+            <div class="note note-27" data-frequency="783.99" id="clickNote"><div>G</div></div>
+            <div class="note note-28" data-frequency="880.00" id="clickNote"><div>A</div></div>
+            <div class="note note-29" data-frequency="987.77" id="clickNote"><div>B</div></div>
+            <div class="note note-30" data-frequency="1046.50" id="clickNote"><div>C</div></div>
+  </div>
+</div>
+<input id="inputexit" type="" name="">
       </td>
       <td>
         <input type="" name="">
@@ -46,17 +70,17 @@
 
 
 <script type="text/javascript">
-	let plays = document.getElementById('play');
-  let notes = document.getElementById('notes');
+  let clickNote = document.getElementById('clickNote1');
+  let inputExit = document.getElementById('inputexit');
+
+
+	class Sound {
   
-
-class Sound {
-
   constructor(context) {
     this.context = context;
   }
-
-  init() {
+  
+  setup() {
     this.oscillator = this.context.createOscillator();
     this.gainNode = this.context.createGain();
 
@@ -65,34 +89,67 @@ class Sound {
     this.oscillator.type = 'sine';
   }
 
-  play(value, time) {
-    this.init();
+  play(value) {
+    this.setup();
 
     this.oscillator.frequency.value = value;
-    this.gainNode.gain.setValueAtTime(1, this.context.currentTime);
+    this.gainNode.gain.setValueAtTime(0, this.context.currentTime);
+    this.gainNode.gain.linearRampToValueAtTime(1, this.context.currentTime + 0.01);
             
-    this.oscillator.start(time);
-    this.stop(time);
-
+    this.oscillator.start(this.context.currentTime);
+    this.stop(this.context.currentTime);
   }
-
-  stop(time) {
-    this.gainNode.gain.exponentialRampToValueAtTime(0.001, time + 1);
-    this.oscillator.stop(time + 1);
+  
+  stop() {
+    this.gainNode.gain.exponentialRampToValueAtTime(0.001, this.context.currentTime + 1);
+    this.oscillator.stop(this.context.currentTime + 1);
   }
-
+ 
 }
 
-plays.onclick = function(){
 let context = new (window.AudioContext || window.webkitAudioContext)();
-let note = new Sound(context);
-let now = context.currentTime;
-let allnotes = notes.value;
-let massiveNotes = allnotes.split(' ');
 
-let c4 = 261.63;
-note.play(c4, now);
+
+document.addEventListener('click', cursor);
+var stick = document.querySelector('.stick');
+var glow1 = document.querySelector('.stick .glow-1');
+var glow2 = document.querySelector('.stick .glow-2');
+var notes = document.querySelectorAll('.note');
+
+notes.forEach((note) => {
+  note.addEventListener('click', () => {
+    playSound(note);
+    showGlow();
+    setTimeout(hideGlow, 300);
+  })
+  note.addEventListener('click', hideGlow);
+})
+
+function playSound(note) {
+  let sound = new Sound(context);
+  let value = note.dataset.frequency;
+  sound.play(value);
+  sound.stop();
 }
+
+function showGlow() {
+  
+}
+
+function hideGlow() {
+
+}
+
+function cursor(e) {
+  
+}
+
+notes.forEach((note) => {
+  note.addEventListener('click', () => {
+     inputExit.value = note.textContent
+  })
+  note.addEventListener('click', hideGlow);
+})
 
 
 
