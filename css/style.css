@@ -1,15 +1,17 @@
 body,html{
 	height: 100%;
 	margin: 0;
+	
 }
 
-.conteiner-of-allBody{
+.container-of-allBody{
 	height: 100%;
 	margin: 0;
 	background-color: #E7F8FF;
+
 }
 
-.conteiner-of-programm{
+.container-of-programm{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -30,7 +32,6 @@ td{
 	background-color: #EDFEF6;
 	color: #142D27;
 	cursor: pointer;
-	background-image:;
 	text-align: center;
     border-radius: 5%;
     border: 1px solid #142D27;
@@ -43,20 +44,6 @@ td{
     display: flex;
     position: relative;
     z-index: 2;
-    .note-group {
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-      top: 52px;
-      &.group-of-two { width: 60px;  }
-      &.group-of-three { width: 93px; }
-      &.group-1 { margin-left: 17px; }
-      &.group-2 { margin-left: 36px; }
-      &.group-3 { margin-left: 42px; }
-      &.group-4 { margin-left: 39px; }
-      &.group-5 { margin-left: 38px; }
-    }
-    .note { margin-top: auto; }
   }
   .bottom-row {
     width: 100%;
