@@ -11,7 +11,7 @@ body,html{
 
 }
 
-.container-of-programm{
+.container-of-allBody__container-of-programm{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -45,13 +45,13 @@ td{
     position: relative;
     z-index: 2;
   }
-  .bottom-row {
+  .container-of-programm__note-row {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.note{
+.note__note-row{
 	background-color: white;
 	padding: 60px 10px 5px 10px;
 	margin-right: 10px;
@@ -61,6 +61,6 @@ td{
 
 
 }
-.note:hover {
+.note__note-row:hover {
 background: linear-gradient(to right, #F6EFD2, #CEAD78);
 }

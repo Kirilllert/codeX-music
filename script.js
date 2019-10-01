@@ -1,4 +1,3 @@
-let clickNote = document.getElementById('clickNote1');
     let inputExit = document.getElementById('inputexit');
 
     class Sound {
@@ -38,10 +37,10 @@ let clickNote = document.getElementById('clickNote1');
 
 
     document.addEventListener('click', cursor);
-    var stick = document.querySelector('.stick');
-    var glow1 = document.querySelector('.stick .glow-1');
-    var glow2 = document.querySelector('.stick .glow-2');
-    var notes = document.querySelectorAll('.note');
+    const stick = document.querySelector('.stick');
+    const glow1 = document.querySelector('.stick .glow-1');
+    const glow2 = document.querySelector('.stick .glow-2');
+    const notes = document.querySelectorAll('.note');
 
     notes.forEach((note) => {
         note.addEventListener('click', () => {
