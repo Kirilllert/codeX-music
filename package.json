@@ -17,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/Kirilllert/codeX-music/issues"
   },
-  "homepage": "https://github.com/Kirilllert/codeX-music#readme"
+  "scripts": {
+    "build": "webpack --config <path_to_webpack_config>/webpack.config.js",
+    "start-hot": "node server.js",
+    "start": "webpack-dev-server --content-base public/ --inline --port 3001"
+},
+  "homepage": "https://github.com/Kirilllert/codeX-music#readme",
+  "devDependencies": {
+    "webpack": "^4.41.0"
+  }
 }
