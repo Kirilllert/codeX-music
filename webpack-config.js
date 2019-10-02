@@ -1,14 +1,26 @@
 const path = require('path');
 
-const conf = {
+const conf {
 	entry: 'src/script.js',
 	output: {
 		path: path.resolve(__dirname,'dist'),
 		filename: 'main.js',
-		publicPath: 'dist/'
+		publicPath: 'dist'
 	},
 	devServer:{
 		overlay: true
+	},
+	module: {
+		rules: [
+			{
+				test:/\.css$/,
+				use:[
+				'style-loader',
+				'css-loader'
+				]
+
+			}
+		]
 	}
 };
 

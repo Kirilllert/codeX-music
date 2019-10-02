@@ -76,3 +76,5 @@
         })
         note.addEventListener('click', hideGlow);
     })
+
+    
