@@ -1,11 +1,14 @@
-let path = require('path');
+const path = require('path');
 
-let conf{
+const conf = {
 	entry: 'src/script.js',
 	output: {
 		path: path.resolve(__dirname,'dist'),
 		filename: 'main.js',
 		publicPath: 'dist/'
+	},
+	devServer:{
+		overlay: true
 	}
 };
 
