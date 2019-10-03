@@ -15,7 +15,7 @@
                     <tr>
                         <td class="tracks">Tracks</td>
                         <td>Instrument</td>
-                        <td>Melody</td>
+                        <td>Melody <i class="fas fa-music-alt"></i></td>
                         <td>Interval,ms</td>
                         <td>Effect</td>
                         <td>Effect again</td>
@@ -32,25 +32,25 @@
                             <input id="notes" type="" name="">
                             <div class="container-of-programm__container">
                                 <div class="container-of-programm__note-row">
-                                    <div class="note note__note-row" data-frequency="196.00">
+                                    <div id="notes" class="note note__note-row" data-frequency="196.00">
                                         <div>G</div>
                                     </div>
-                                    <div class="note note__note-row" data-frequency="220.00">
+                                    <div id="notes" class="note note__note-row" data-frequency="220.00">
                                         <div>A</div>
                                     </div>
-                                    <div class="note note__note-row" data-frequency="246.94">
+                                    <div id="notes" class="note note__note-row" data-frequency="246.94">
                                         <div>B</div>
                                     </div>
-                                    <div class="note note__note-row" data-frequency="261.63">
+                                    <div id="notes" class="note note__note-row" data-frequency="261.63">
                                         <div>C</div>
                                     </div>
-                                    <div class="note note__note-row" data-frequency="293.66">
+                                    <div id="notes"  class="note note__note-row" data-frequency="293.66">
                                         <div>D</div>
                                     </div>
-                                    <div class="note note__note-row" data-frequency="329.63">
+                                    <div id="notes"  class="note note__note-row" data-frequency="329.63">
                                         <div>E</div>
                                     </div>
-                                    <div class="note note__note-row" data-frequency="349.23">
+                                    <div id="notes" class="note note__note-row" data-frequency="349.23">
                                         <div>F</div>
                                     </div>
                                     <div class="note note__note-row" data-frequency="392.00">
@@ -88,7 +88,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <input id="inputexit" type="" name="">
+                            <input id="inputexit" contenteditable="true" type="" name="">
+                            <button id="save">save</button>
                         </td>
                         <td>
                             <input type="" name="">
@@ -101,7 +102,8 @@
             </table>
         </div>
     </div>
-    <script type="text/javascript" src="dist/main.js"></script>
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="script.js"></script>
     </script>
 </body>
 </html>
