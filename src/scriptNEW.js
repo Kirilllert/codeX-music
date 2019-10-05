@@ -3,8 +3,9 @@
     let note = document.getElementById('notes');
     const playButton = document.getElementById('play');
     const save = document.getElementById('save');
+    const notes = document.querySelectorAll('.note');
 
-    class Sound {
+class Sound {
 
         constructor(context) {
             this.context = context;
@@ -44,7 +45,6 @@
     const stick = document.querySelector('.stick');
     const glow1 = document.querySelector('.stick .glow-1');
     const glow2 = document.querySelector('.stick .glow-2');
-    const notes = document.querySelectorAll('.note');
 
     notes.forEach((note) => {
         note.addEventListener('click', () => {
@@ -73,10 +73,13 @@
     function cursor(e) {
 
     }
-     for (let i = 0; i < notes.length; i++) {
+
+for (let i = 0; i < notes.length; i++) {
             notes[i].addEventListener('click', () =>{
             inputExit.value += `${notes[i].textContent}`;
             //inputExit.value = finilMassiveNotes;
-         })
+         }) 
+            console.log(inputExit.value) 
      }
- 
+
+
