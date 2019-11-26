@@ -1,7 +1,7 @@
 const path = require('path');
 
 const conf {
-	entry: 'src/script.js',
+	entry: 'src/scriptNEW.js',
 	output: {
 		path: path.resolve(__dirname,'dist'),
 		filename: 'main.js',
